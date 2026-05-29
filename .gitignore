@@ -1,0 +1,11 @@
+# NEVER sync these — sensitive or auto-generated
+auth.json
+sessions/
+npm/
+bin/
+
+# Generated files (use pi-config-merge.sh to regenerate)
+settings.json
+settings.local.json
+
+# Platform-specific base config is synced, but local overrides stay device-local
