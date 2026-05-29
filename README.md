@@ -117,18 +117,23 @@ make bootstrap
 2. `init-local` — 根据当前操作系统生成 `settings.local.json`
 3. `merge` — 合并生成 `settings.json`
 
-然后手动完成：
+**然后必须执行：**
 
 ```bash
-# 按需微调本地配置
-vim ~/.pi/agent/settings.local.json
-make merge
-
-# 重装 settings 中声明的所有 pi 包
+# ⚠️ 重装 pi 包（npm/ 目录不同步，packages 列表在 settings.json 里）
 pi update --extensions
 
 # 配置 API Key
 pi login
+```
+
+> pi 启动时也会自动检查缺失的包并安装，但手动运行 `pi update --extensions` 可以立即确认所有扩展就绪。
+
+如有需要，再微调本地配置：
+
+```bash
+vim ~/.pi/agent/settings.local.json
+make merge
 ```
 
 ## 命令参考
